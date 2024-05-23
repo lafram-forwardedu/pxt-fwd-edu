@@ -18,7 +18,7 @@ jobs:
          npm install -g makecode
 
       - run: |
-         find / -name 'bump.js'
+         find / -name 'bump.js' 2>/dev/null
 
       - name: Stupid hacky commit workaround
         run: >
@@ -26,7 +26,7 @@ jobs:
           /"commit"/
           s/newV/
           `${newV}\\n\\n\\nskipchecks:true`, "--cleanup=ver batim"/'
-          ~/.nvm/versions/node/*/**/bump.js
+          /usr/local/lib/node_modules/makecode/built/bump.js
 
       - run: 'git config --global user.email "tech@forwardedu.com"'
 
